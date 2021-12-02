@@ -5,19 +5,23 @@ const input = Deno.readTextFileSync("day-2/input.txt")
 
 let depth = 0;
 let position = 0;
+let aim = 0;
 
 for (const string of input) {
     const [instruction, amount] = string.split(" ");
 
-    if (instruction === "forward") {
-        position += Number(amount);
-    } else if (instruction === "down") {
-        depth += Number(amount);
+    if (instruction === "down") {
+        aim += Number(amount);
     } else if (instruction === "up") {
-        depth -= Number(amount);
+        aim -= Number(amount);
+    } else if (instruction === "forward") {
+        position += Number(amount);
+        depth += aim * Number(amount);
     }
 }
 
 const output = depth * position;
 
 console.log(output);
+
+export {};
