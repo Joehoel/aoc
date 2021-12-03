@@ -21,3 +21,5 @@ for (const string of input) {
 const output = depth * position;
 
 console.log(output);
+
+export {};
