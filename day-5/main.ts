@@ -29,8 +29,8 @@ const width = Math.max(...lines.map(line => Math.max(line.start.x, line.end.x)))
 const height = Math.max(...lines.map(line => Math.max(line.start.y, line.end.y)));
 const diagonal = Math.max(width, height);
 
-const row: Row = Array.from({ length: 1000 }, () => ".");
-const diagram: Row[] = Array.from({ length: 1000 }, () => [...row]);
+const row: Row = Array.from({ length: diagonal + 1 }, () => ".");
+const diagram: Row[] = Array.from({ length: diagonal + 1 }, () => [...row]);
 
 // part 1
 for (const line of lines) {
@@ -38,7 +38,7 @@ for (const line of lines) {
     const points: Point[] = [];
 
     if (line.start.x === line.end.x) {
-        // horizontal line
+        // vertical line
         const ys = [line.start.y, line.end.y];
         const minY = Math.min(...ys);
         const maxY = Math.max(...ys);
@@ -47,7 +47,7 @@ for (const line of lines) {
             points.push({ x: line.start.x, y });
         }
     } else if (line.start.y === line.end.y) {
-        // vertical line
+        // horizontal line
         const xs = [line.start.x, line.end.x];
         const minX = Math.min(...xs);
         const maxX = Math.max(...xs);
