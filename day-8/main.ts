@@ -136,7 +136,7 @@ class Display {
 }
 
 const input = lines("day-8/input.txt").map(line => {
-    const [left, right] = line.split(" | ").map(s => s.trim().split(" ").sort());
+    const [left, right] = line.split(" | ").map(s => s.trim().split(" "));
 
     return {
         left,
@@ -149,12 +149,13 @@ const readings = input.map(({ left, right }) => {
 });
 
 const output = readings
-    .map(reading =>
-        reading.right
+    .map(reading => {
+        return reading.right
             .map(displayed => reading.digitToNumber[displayed.toString()])
             .map(n => `${n}`)
-            .join("")
-    )
+            .join("");
+    })
     .map(Number);
 
+console.log(output);
 console.log(sum(output));
