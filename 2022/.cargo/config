@@ -1,5 +1,0 @@
-[build]
-rustflags = ["-C", "target-cpu=native"]
-
-[alias]
-rr = "run --release"

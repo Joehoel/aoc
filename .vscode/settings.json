@@ -1,5 +1,10 @@
 {
-    "deno.enable": true,
-    "deno.lint": true,
-    "deno.unstable": false
+  "deno.enable": true,
+  "deno.lint": true,
+  "deno.unstable": true,
+  "files.encoding": "utf8",
+  "deno.suggest.imports.hosts": {
+    "https://deno.land": true
+  },
+  "deno.importMap": "./import_map.json"
 }
