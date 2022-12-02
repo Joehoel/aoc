@@ -27,20 +27,22 @@ type Move = keyof typeof guide;
 function one(input: string): number {
   const lines = input.split("\n").filter(Boolean);
 
-  const round = lines.map(line => line.split(" ")) as Move[][];
+  const rounds = lines.map(line => line.split(" ")) as Move[][];
 
-  const score = round.reduce((acc, [elf, you]) => {
-    if (guide[elf] + 1 === guide[you]) {
+  const score = rounds.reduce((acc, [elf, you]) => {
+    if (guide[elf] + 1 === guide[you] || guide[elf] - 2 === guide[you]) {
       console.log("Win");
       acc += 6;
+      acc += guide[you];
     } else if (guide[elf] === guide[you]) {
       console.log("Draw");
 
       acc += 3;
+      acc += guide[you];
     } else {
       console.log("Loss");
+      acc += guide[you];
     }
-    acc += guide[you];
     console.log(moves[guide[elf] - 1], moves[guide[you] - 1]);
     console.log("\n");
 
