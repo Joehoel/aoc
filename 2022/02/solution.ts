@@ -41,12 +41,11 @@ function one(input: string): number {
       acc += guide[you];
     } else {
       console.log("Loss");
-      acc += guide[you];
     }
     console.log(moves[guide[elf] - 1], moves[guide[you] - 1]);
     console.log("\n");
 
-    return acc;
+    return acc + guide[you];
   }, 0);
 
   return score;
