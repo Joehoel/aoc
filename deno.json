@@ -4,6 +4,6 @@
   },
   "importMap": "import_map.json",
   "test": {
-    "files": { "include": ["./"] }
+    "files": { "include": ["solution.ts"] }
   }
 }
