@@ -25,6 +25,16 @@ export const groups = (file: string): string[][] => {
   return parts.filter(x => x.length > 0);
 };
 
+export const chunks = <T>(n: T[], size: number): T[][] => {
+  const chunks: T[][] = [];
+
+  for (let i = 0; i < n.length; i += size) {
+    chunks.push(n.slice(i, i + size));
+  }
+
+  return chunks;
+};
+
 export const median = (n: number[]) => {
   const sorted = [...n].sort((a, b) => a - b);
 
