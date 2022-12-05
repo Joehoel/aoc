@@ -1,7 +1,5 @@
 import { raw, sum, chunks } from "utils";
-import { assertEquals } from "testing/asserts.ts";
 
-const example = raw("2022/03/example.txt");
 const input = raw("2022/03/input.txt");
 
 function letterToNumber(letter: string) {
@@ -9,7 +7,7 @@ function letterToNumber(letter: string) {
   return alphabet.indexOf(letter) + 1;
 }
 
-function one(input: string): number {
+export function one(input: string): number {
   const lines = input.split("\n").filter(Boolean);
   const items = lines.map(line => [line.slice(0, line.length / 2), line.slice(line.length / 2)]);
 
@@ -22,12 +20,10 @@ function one(input: string): number {
 
   const result = sum(common.map(letterToNumber));
 
-  console.log(common.map(letterToNumber));
-
   return result;
 }
 
-function two(input: string): number {
+export function two(input: string): number {
   const lines = input.split("\n").filter(Boolean);
 
   const groups = chunks(lines, 3);
@@ -44,18 +40,6 @@ function two(input: string): number {
 
   return result;
 }
-
-Deno.test("Part 1", () => {
-  const result = one(example);
-
-  assertEquals(result, 157);
-});
-
-Deno.test("Part 2", () => {
-  const result = two(example);
-
-  assertEquals(result, 70);
-});
 
 console.log(`Part 1: `, one(input));
 console.log(`Part 2: `, two(input));

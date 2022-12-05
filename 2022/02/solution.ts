@@ -1,7 +1,5 @@
-import { raw, sum } from "utils";
-import { assertEquals } from "testing/asserts.ts";
+import { raw } from "utils";
 
-const example = raw("2022/02/example.txt");
 const input = raw("2022/02/input.txt");
 
 const guide = {
@@ -32,8 +30,6 @@ const newGuide = {
   Y: 3,
   Z: 6,
 } as const;
-
-const moves = ["Rock", "Paper", "Scissors"];
 
 type Move = keyof typeof guide;
 
@@ -94,25 +90,13 @@ function calculate(moves: Move[][]): number {
   }, 0);
 }
 
-function one(input: string): number {
+export function one(input: string): number {
   return calculate(parse(input));
 }
 
-function two(input: string): number {
+export function two(input: string): number {
   return strategize(parse(input));
 }
-
-Deno.test("Part 1", () => {
-  const result = one(example);
-
-  assertEquals(result, 15);
-});
-
-Deno.test("Part 2", () => {
-  const result = two(example);
-
-  assertEquals(result, 12);
-});
 
 console.log(`Part 1: `, one(input));
 console.log(`Part 2: `, two(input));
