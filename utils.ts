@@ -45,8 +45,10 @@ export const intersection = <T>(a: T[], b: T[]): T[] => {
   return a.filter(x => b.includes(x));
 };
 
-export const intersect = <T>(...sets: T[][]): T[] => {
-  return sets.reduce((acc, set) => intersection(acc, set));
+export const intersect = <T>(a: T[], b: T[], full = true): boolean => {
+  if (!full) return a.some(x => b.includes(x));
+
+  return a.every(x => b.includes(x));
 };
 
 export class Stack<T> {

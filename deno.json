@@ -2,8 +2,5 @@
   "tasks": {
     "run": "deno run --allow-run aoc.ts"
   },
-  "importMap": "import_map.json",
-  "test": {
-    "files": { "include": ["solution.ts"] }
-  }
+  "importMap": "import_map.json"
 }
