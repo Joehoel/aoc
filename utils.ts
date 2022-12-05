@@ -40,3 +40,39 @@ export const median = (n: number[]) => {
 
   return [Math.floor(sorted.length / 2)];
 };
+
+export const intersection = <T>(a: T[], b: T[]): T[] => {
+  return a.filter(x => b.includes(x));
+};
+
+export const intersect = <T>(...sets: T[][]): T[] => {
+  return sets.reduce((acc, set) => intersection(acc, set));
+};
+
+export class Stack<T> {
+  private items: T[] = [];
+
+  constructor(...items: T[]) {
+    this.items = items;
+  }
+
+  push(item: T) {
+    this.items.push(item);
+  }
+
+  pop(count = 1): T | undefined {
+    return this.items.splice(this.items.length - count, count)[0];
+  }
+
+  peek(): T | undefined {
+    return this.items[this.items.length - 1];
+  }
+
+  get length() {
+    return this.items.length;
+  }
+}
+
+export const fillUntil = <T>(n: T[], size: number, fill: T): T[] => {
+  return n.length < size ? [...n, ...Array(size - n.length).fill(fill)] : n;
+};
