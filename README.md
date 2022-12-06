@@ -1,21 +1,13 @@
-# Advent of Code
+## About me
 
-This repository contains solutions to the Advent of Code puzzles, written in TypeScript and run using Deno.
+I am currently studying computer science at [Windesheim University](https://www.windesheim.nl/) and working as a junior developer at [De Indruk](https://www.deindruk.nl/). As a full stack developer and app developer, I have experience in technologies such as React, React Native, TypeScript, Vue, and Svelte. I have a strong background in web development, with a focus on building user-friendly and performant applications. I am also skilled in mobile development, and have experience creating cross-platform apps that can be deployed to both iOS and Android devices.
 
-## Usage
+## Projects
 
-To run these solutions, you will need to have Deno installed.
+- [Mozaïek Kerstpakketten](https://kerstpakket.mozaiek.nl): A website where users can sign up to receive a Christmas package. Users can either make the package themselves or choose to have someone in their neighborhood make and deliver the package.
+- [De Nieuwe Psalmberijming app](https://apps.apple.com/nl/app/de-nieuwe-psalmberijming/id1610551358): A mobile app that contains all the melodies and rhymes of De Nieuwe Psalmberijming.
+- [Compagnon](https://github.com/Joehoel/compagnon): A multi-functional Discord bot built for a Discord server with a closed friend group.
 
-To run a solution for a specific puzzle, use the `deno task run` command followed by the **year** and **day** of the puzzle. For example, to run the solution for puzzle 1 of day 1 in 2022, run the following command:
+## Contact
 
-```bash
-deno task run 2022 01
-```
-
-To run the tests for a solution, use the `--test` flag with the deno task run command. For example, to run the tests for puzzle 1 of day 1, run the following command:
-
-```bash
-deno task run 2022 01 --test
-```
-
-Note that the input for the puzzles is already provided and does not need to be entered manually.
+If you would like to learn more about my work or connect with me, please feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/jo%C3%ABl-kuijper-777299206) or check out my portfolio website. I am always open to discussing new opportunities and collaborating on interesting projects.
