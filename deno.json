@@ -1,6 +1,7 @@
 {
   "tasks": {
-    "run": "deno run --allow-run aoc.ts"
+    "run": "deno run --allow-run aoc.ts",
+    "g": "npx plop"
   },
   "importMap": "import_map.json"
 }
