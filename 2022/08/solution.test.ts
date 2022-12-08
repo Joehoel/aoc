@@ -13,5 +13,5 @@ Deno.test("Part 1", () => {
 Deno.test("Part 2", () => {
   const result = two(example);
 
-  assertEquals(result, 0);
+  assertEquals(result, 8);
 });
