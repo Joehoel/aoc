@@ -14,6 +14,7 @@ const p = Deno.run({
     `deno`,
     flags.test ? `test` : `run`,
     "--allow-read",
+    "--watch",
     join(year, day.padStart(2, "0"), flags.test ? "solution.test.ts" : "solution.ts"),
   ],
 });
