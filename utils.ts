@@ -78,3 +78,10 @@ export class Stack<T> {
 export const fillUntil = <T>(n: T[], size: number, fill: T): T[] => {
   return n.length < size ? [...n, ...Array(size - n.length).fill(fill)] : n;
 };
+
+export function is(
+  type: any | null | undefined | boolean | number | string | symbol | object,
+  x: string | number
+): x is number {
+  return typeof x === type;
+}

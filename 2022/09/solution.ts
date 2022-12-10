@@ -46,6 +46,7 @@ function move(tail: Position, head: Position): Position {
   else if (diff.x === -2 && diff.y === -1) return { x: tail.x - 1, y: tail.y - 1 };
   else if (diff.x === -2 && diff.y === 0) return { x: tail.x - 1, y: tail.y };
   else if (diff.x === -2 && diff.y === +1) return { x: tail.x - 1, y: tail.y + 1 };
+
   else if (diff.x === 2 && diff.y === 2) return { x: tail.x + 1, y: tail.y + 1 };
   else if (diff.x === 2 && diff.y === -2) return { x: tail.x + 1, y: tail.y - 1 };
   else if (diff.x === -2 && diff.y === -2) return { x: tail.x - 1, y: tail.y - 1 };
@@ -94,6 +95,7 @@ export function one(input: string): number {
 
   return visited.size;
 }
+
 export function two(input: string): number {
   const movements = getMovements(input);
 

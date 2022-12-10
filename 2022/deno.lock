@@ -18,5 +18,14 @@
     "https://deno.land/x/deno_dom@v0.1.19-alpha/src/dom/nwsapi-types.ts": "54601c41f8ab524b565550cd764864d9cf109010619b8ce769cfa59cc3be4ed1",
     "https://deno.land/x/deno_dom@v0.1.19-alpha/src/dom/nwsapi.js": "10a2bf1409c9e82f3d6b604d275dd3418cb26348e659411502e19b6aed699772",
     "https://deno.land/x/deno_dom@v0.1.19-alpha/src/parser.ts": "3a7e58cc25e49e48f216e6ddda20d7a326ae75b976c4430c1054edba578639a6"
+  },
+  "npm": {
+    "specifiers": { "tiny-invariant": "tiny-invariant@1.3.1" },
+    "packages": {
+      "tiny-invariant@1.3.1": {
+        "integrity": "sha512-AD5ih2NlSssTCwsMznbvwMZpJ1cbhkGd2uueNxzv2jDlEeZdU04JQfRnggJQ8DrcVBGjAsCKwFBbDlVNtEMlzw==",
+        "dependencies": {}
+      }
+    }
   }
 }
