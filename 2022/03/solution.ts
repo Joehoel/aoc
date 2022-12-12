@@ -1,11 +1,6 @@
-import { raw, sum, chunks } from "utils";
+import { raw, sum, chunks, letterToNumber } from "utils";
 
 const input = raw("2022/03/input.txt");
-
-function letterToNumber(letter: string) {
-  const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  return alphabet.indexOf(letter) + 1;
-}
 
 export function one(input: string): number {
   const lines = input.split("\n").filter(Boolean);

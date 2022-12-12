@@ -85,3 +85,8 @@ export function is(
 ): x is number {
   return typeof x === type;
 }
+
+export function letterToNumber(letter: string) {
+  const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  return alphabet.indexOf(letter) + 1;
+}
