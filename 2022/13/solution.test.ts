@@ -1,7 +1,7 @@
 import { assertEquals } from "testing/asserts.ts";
 import { one, two } from "./solution.ts";
 
-const example = await Deno.readTextFile("./example.txt");
+const example = await Deno.readTextFile("2022/13/example.txt");
 
 Deno.test("Part 1", () => {
   const result = one(example);
