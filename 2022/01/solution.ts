@@ -1,5 +1,8 @@
-import { raw, sum } from "utils";
+import { raw, sum } from "../../utils.ts";
+
 const input = raw("2022/01/input.txt");
+
+input.lines().sum();
 
 function calories(input: string) {
   const groups = input.split("\n\n");
@@ -9,7 +12,7 @@ function calories(input: string) {
       const numbers = group
         .split("\n")
         .filter(Boolean)
-        .map(n => parseInt(n));
+        .map((n) => parseInt(n));
       acc.push(sum(numbers));
 
       return acc;

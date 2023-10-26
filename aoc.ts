@@ -1,13 +1,54 @@
 import { join } from "path";
-import { parse } from "https://deno.land/std@0.91.0/flags/mod.ts";
-
-const [year, day] = Deno.args;
+import { parse } from "flags";
 
 const flags = parse(Deno.args, {
   boolean: ["--test"],
 });
 
-if (flags.test) console.log("Running tests...\n");
+const [year, day] = flags._.map((x) => x.toString());
+
+// if (!year || !day) {
+//   console.error("Please provide a year and day");
+//   Deno.exit(1);
+// }
+
+// if (flags.test) console.log("Running tests...\n");
+
+// const command = new Deno.Command(Deno.execPath(), {
+//   args: [
+//     `deno`,
+//     flags.test ? `test` : `run`,
+//     "--allow-read",
+//     "--watch",
+//     join(
+//       year,
+//       day.padStart(2, "0"),
+//       flags.test ? "solution.test.ts" : "solution.ts"
+//     ),
+//   ],
+// });
+
+// const output = await command.output()
+// if (flags.test) console.log("Running tests...\n");
+
+// const command = new Deno.Command(Deno.execPath(), {
+//   args: [
+//     `deno`,
+//     flags.test ? `test` : `run`,
+//     "--allow-read",
+//     "--watch",
+//     join(
+//       year,
+//       day.padStart(2, "0"),
+//       flags.test ? "solution.test.ts" : "solution.ts"
+//     ),
+//   ],
+// });
+
+// const output = await command.output();
+// console.log(output.stdout.toString());
+
+// Deno.exit(output.code);
 
 const p = Deno.run({
   cmd: [
@@ -15,7 +56,11 @@ const p = Deno.run({
     flags.test ? `test` : `run`,
     "--allow-read",
     "--watch",
-    join(year, day.padStart(2, "0"), flags.test ? "solution.test.ts" : "solution.ts"),
+    join(
+      year,
+      day.padStart(2, "0"),
+      flags.test ? "solution.test.ts" : "solution.ts"
+    ),
   ],
 });
 

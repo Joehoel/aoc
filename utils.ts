@@ -1,15 +1,25 @@
 export const sum = (n: number[]): number => n.reduce((sum, x) => sum + x, 0);
 
-export const range = (start: number, end: number, step = 1): number[] =>
-  [...Array(end - start).keys()].map(i => start + i * step).filter(x => x < end);
+/**
+ * Returns an array of numbers from `start` to `end` (exclusive) with a step size of `step`.
+ * @param start The starting number of the range.
+ * @param end The ending number of the range.
+ * @param step The step size between each number in the range. Defaults to 1.
+ * @returns An array of numbers from `start` to `end` (exclusive) with a step size of `step`.
+ */
+export function range(start: number, end: number, step = 1): number[] {
+  return [...Array(end - start).keys()]
+    .map((i) => start + i * step)
+    .filter((x) => x <= end);
+}
 
 export const raw = (file: string): string => Deno.readTextFileSync(file);
 
 export const lines = (file: string, split: string | RegExp = "\n"): string[] =>
   raw(file)
     .split(split)
-    .map(x => x.trim())
-    .filter(x => x);
+    .map((x) => x.trim())
+    .filter((x) => x);
 
 export const groups = (file: string): string[][] => {
   const parts: string[][] = [[]];
@@ -22,7 +32,7 @@ export const groups = (file: string): string[][] => {
     }
   }
 
-  return parts.filter(x => x.length > 0);
+  return parts.filter((x) => x.length > 0);
 };
 
 export const chunks = <T>(n: T[], size: number): T[][] => {
@@ -42,13 +52,13 @@ export const median = (n: number[]) => {
 };
 
 export const intersection = <T>(a: T[], b: T[]): T[] => {
-  return a.filter(x => b.includes(x));
+  return a.filter((x) => b.includes(x));
 };
 
 export const intersect = <T>(a: T[], b: T[], full = true): boolean => {
-  if (!full) return a.some(x => b.includes(x));
+  if (!full) return a.some((x) => b.includes(x));
 
-  return a.every(x => b.includes(x));
+  return a.every((x) => b.includes(x));
 };
 
 export class Stack<T> {
@@ -79,14 +89,57 @@ export const fillUntil = <T>(n: T[], size: number, fill: T): T[] => {
   return n.length < size ? [...n, ...Array(size - n.length).fill(fill)] : n;
 };
 
-export function is(
-  type: any | null | undefined | boolean | number | string | symbol | object,
-  x: string | number
-): x is number {
-  return typeof x === type;
-}
-
 export function letterToNumber(letter: string) {
   const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
   return alphabet.indexOf(letter) + 1;
 }
+declare global {
+  interface String {
+    lines(): string[];
+    chars(): string[];
+  }
+
+  interface Array<T> {
+    chunks(size: number): T[][];
+    first(): T;
+    last(): T;
+    fillUntil<T>(size: number, fill: T): T[];
+    sum(): number;
+  }
+}
+
+String.prototype.lines = function () {
+  return this.split("\n").filter(Boolean);
+};
+
+String.prototype.chars = function () {
+  return this.split("")
+    .map((c) => c.trim())
+    .filter(Boolean);
+};
+
+Array.prototype.first = function <T>(): T {
+  return this[0];
+};
+
+Array.prototype.last = function <T>(): T {
+  return this[this.length - 1];
+};
+
+Array.prototype.chunks = function <T>(size: number) {
+  return chunks<T>(this, size);
+};
+
+Array.prototype.fillUntil = function <T>(size: number, fill: T) {
+  return fillUntil<T>(this, size, fill);
+};
+
+Array.prototype.sum = function () {
+  if (this.some((x) => Number.isNaN(x))) {
+    throw new Error(
+      `Can only sum an array of numbers. Got '${typeof this.first()}'`
+    );
+  }
+
+  return sum(this);
+};
