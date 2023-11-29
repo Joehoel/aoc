@@ -1,3 +1,3 @@
 fn main() {
-    println!("Hello, world!");
+    println!("Advent of Code 2023!");
 }
