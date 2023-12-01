@@ -1,6 +1,6 @@
 # Advent of Code
 
-Hello. This is all my code for "all" the Advent of Code challenges. It is all writtin in TypeScript with Deno, because I love that. I tried to do it in Rust twice but I gave up after 10 minutes on the first day, both times.
+Hello. This is all my code for "all" the Advent of Code challenges. It is all written in TypeScript with Deno, because I love that. I tried to do it in Rust twice but I gave up after 10 minutes on the first day, both times.
 
 I don't know why anyone else would like to run this code. But if you do, and you're not stupid. Do the following:
 
