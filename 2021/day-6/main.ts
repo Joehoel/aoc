@@ -1,4 +1,4 @@
-import { raw, range, sum } from "../utils.ts";
+import { range, raw, sum } from "../utils.ts";
 
 const state = raw("day-6/input.txt").split(",").map(Number);
 // Part 1
@@ -16,25 +16,25 @@ const state = raw("day-6/input.txt").split(",").map(Number);
 // }
 
 function grow(fish: number[], days: number) {
-    for (const _ of range(0, days)) {
-        const calender = [...Array.from({ length: 9 }, () => 0)];
-        for (const day of range(0, 9)) {
-            if (day === 0) {
-                calender[6] = fish[0];
-                calender[8] = fish[0];
-            } else {
-                calender[day - 1] += fish[day];
-            }
-            // console.log({ newFish });
-        }
-        fish = [...calender];
-    }
-    return fish;
+	for (const _ of range(0, days)) {
+		const calender = [...Array.from({ length: 9 }, () => 0)];
+		for (const day of range(0, 9)) {
+			if (day === 0) {
+				calender[6] = fish[0];
+				calender[8] = fish[0];
+			} else {
+				calender[day - 1] += fish[day];
+			}
+			// console.log({ newFish });
+		}
+		fish = [...calender];
+	}
+	return fish;
 }
 
 const fish = [...Array.from({ length: 9 }, () => 0)];
 for (const item of state) {
-    fish[item]++;
+	fish[item]++;
 }
 
 const days = 256;

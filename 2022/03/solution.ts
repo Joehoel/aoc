@@ -1,39 +1,45 @@
-import { raw, sum, chunks, letterToNumber } from "utils";
+import { chunks, letterToNumber, raw, sum } from "utils";
 
 const input = raw("2022/03/input.txt");
 
 export function one(input: string): number {
-  const lines = input.split("\n").filter(Boolean);
-  const items = lines.map(line => [line.slice(0, line.length / 2), line.slice(line.length / 2)]);
+	const lines = input.split("\n").filter(Boolean);
+	const items = lines.map(
+		(line) => [line.slice(0, line.length / 2), line.slice(line.length / 2)],
+	);
 
-  const values = items.map(([left, right]) => [left.split(""), right.split("")]);
+	const values = items.map((
+		[left, right],
+	) => [left.split(""), right.split("")]);
 
-  // get the values that appear in both left and right
-  const common = values.flatMap(([left, right]) =>
-    Array.from(new Set(left.filter(value => right.includes(value))))
-  );
+	// get the values that appear in both left and right
+	const common = values.flatMap(([left, right]) =>
+		Array.from(new Set(left.filter((value) => right.includes(value))))
+	);
 
-  const result = sum(common.map(letterToNumber));
+	const result = sum(common.map(letterToNumber));
 
-  return result;
+	return result;
 }
 
 export function two(input: string): number {
-  const lines = input.split("\n").filter(Boolean);
+	const lines = input.split("\n").filter(Boolean);
 
-  const groups = chunks(lines, 3);
+	const groups = chunks(lines, 3);
 
-  const common = groups.flatMap(group => {
-    // find the common letter in all three items of the array
-    const [left, middle, right] = group.map(line => line.split(""));
-    return Array.from(
-      new Set(left.filter(value => middle.includes(value) && right.includes(value)))
-    );
-  });
+	const common = groups.flatMap((group) => {
+		// find the common letter in all three items of the array
+		const [left, middle, right] = group.map((line) => line.split(""));
+		return Array.from(
+			new Set(
+				left.filter((value) => middle.includes(value) && right.includes(value)),
+			),
+		);
+	});
 
-  const result = sum(common.map(letterToNumber));
+	const result = sum(common.map(letterToNumber));
 
-  return result;
+	return result;
 }
 
 console.log(`Part 1: `, one(input));

@@ -5,13 +5,13 @@ import { one, two } from "./solution.ts";
 const example = raw("2022/05/example.txt");
 
 Deno.test("Part 1", () => {
-  const result = one(example);
+	const result = one(example);
 
-  assertEquals(result, "CMZ");
+	assertEquals(result, "CMZ");
 });
 
 Deno.test("Part 2", () => {
-  const result = two(example);
+	const result = two(example);
 
-  assertEquals(result, "MCD");
+	assertEquals(result, "MCD");
 });
