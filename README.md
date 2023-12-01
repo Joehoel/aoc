@@ -29,3 +29,11 @@ Then you can run the script like this:
 ```sh
 deno task download
 ```
+
+If you are stealing my template. You can generate all the necessary files for a new day by running:
+
+```sh
+deno task g
+```
+
+Okay thanks bye <3
