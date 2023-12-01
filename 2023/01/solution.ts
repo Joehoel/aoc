@@ -30,12 +30,12 @@ export function one(input: string): number {
     }
 
     return (acc += Number(
-      digits.at(0)!.toString() + digits.at(-1)!.toString()
+      digits.first()!.toString() + digits.last()!.toString()
     ));
   }, 0);
 }
-export function two(d: string): number {
-  return d.split("\n").reduce((acc, line) => {
+export function two(input: string): number {
+  return input.split("\n").reduce((acc, line) => {
     const digits: number[] = [];
 
     for (let i = 0; i < line.length; i++) {
@@ -54,7 +54,7 @@ export function two(d: string): number {
     }
 
     return (acc += Number(
-      digits.at(0)!.toString() + digits.at(-1)!.toString()
+      digits.first()!.toString() + digits.last()!.toString()
     ));
   }, 0);
 }
