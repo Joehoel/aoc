@@ -17,6 +17,8 @@ const cookie = `session=${session}`;
 const input = await fetch(url, {
   headers: {
     cookie,
+    "user-agent":
+      "https://github.com/Joehoel/aoc/blob/master/download.ts by jmkuijper@outlook.com",
   },
 }).then((res) => res.text());
 
