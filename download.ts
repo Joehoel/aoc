@@ -20,4 +20,7 @@ const input = await fetch(url, {
   },
 }).then((res) => res.text());
 
-Deno.writeTextFileSync(`./${year}/${day.padStart(2, "0")}/input.txt`, input);
+Deno.writeTextFileSync(
+  `./${year}/${day.padStart(2, "0")}/input.txt`,
+  input.trimEnd()
+);
