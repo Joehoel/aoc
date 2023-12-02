@@ -39,12 +39,12 @@ class Game {
     const id = parseInt(parts[0].split(" ")[1], 10);
 
     const subsets = parts[1].split("; ").map((subset) => {
-      const counts = { red: 0, green: 0, blue: 0 };
+      const counts: Subset = { red: 0, green: 0, blue: 0 };
 
       for (const str of subset.split(", ")) {
         const [num, key] = str.split(" ");
 
-        counts[key as keyof typeof counts] = parseInt(num);
+        counts[key as Color] = parseInt(num);
       }
 
       return counts;
