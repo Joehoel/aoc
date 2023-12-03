@@ -1,5 +1,6 @@
 export const sum = (n: number[]): number => n.reduce((sum, x) => sum + x, 0);
-
+export const multiply = (n: number[]): number =>
+  n.reduce((product, x) => product * x, 1);
 /**
  * Returns an array of numbers from `start` to `end` (exclusive) with a step size of `step`.
  * @param start The starting number of the range.
@@ -97,6 +98,7 @@ declare global {
   interface String {
     lines(): string[];
     chars(): string[];
+    isDigit(): boolean;
   }
 
   interface Array<T> {
@@ -105,6 +107,7 @@ declare global {
     last(): T | undefined;
     fillUntil<T>(size: number, fill: T): T[];
     sum(): number;
+    multiply(): number;
   }
 }
 
@@ -116,6 +119,10 @@ String.prototype.chars = function () {
   return this.split("")
     .map((c) => c.trim())
     .filter(Boolean);
+};
+
+String.prototype.isDigit = function () {
+  return /^\d+$/.test(this.valueOf());
 };
 
 Array.prototype.first = function <T>(): T | undefined {
@@ -142,4 +149,13 @@ Array.prototype.sum = function () {
   }
 
   return sum(this);
+};
+Array.prototype.multiply = function () {
+  if (this.some((x) => Number.isNaN(x))) {
+    throw new Error(
+      `Can only multiply an array of numbers. Got '${typeof this.first()}'`
+    );
+  }
+
+  return multiply(this);
 };
