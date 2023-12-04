@@ -62,5 +62,7 @@ export function two(input: string): number {
   }, 0);
 }
 
-console.log(`Part 1: `, one(input));
-console.log(`Part 2: `, two(input));
+console.table({
+  "Part 1": one(input),
+  "Part 2": two(input),
+});
