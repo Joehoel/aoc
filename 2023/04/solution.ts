@@ -1,74 +1,65 @@
-import { raw } from "utils";
+import { intersection, raw } from "utils";
 
 const input = raw("2023/04/input.txt");
 
 export function one(input: string): number {
-  let cards = input.lines().map((l) => {
+  return input.lines().reduce((total, l) => {
     const [winning, mine] = l
       .split(": ")[1]
-      .split(" | ")
-      .map((x) =>
-        x
-          .split(" ")
-          .map((y) => parseInt(y))
-          .filter(Boolean)
+      .split("|")
+      .map(
+        (x) =>
+          new Set(
+            x
+              .split(" ")
+              .map((y) => parseInt(y))
+              .filter(Boolean)
+          )
       );
 
-    return { winning, mine };
-  });
+    const count = intersection([...winning], [...mine]).length;
 
-  let sum = 0;
-  let x = 0;
-
-  // Count how many of my numbers are in the winning numbers for each card
-  const winning = cards.map((card, i, array) => {
-    const count = card.winning.filter((x) => card.mine.includes(x)).length;
-
-    // The first match makes the card worth one point and each match after the first doubles the point value of that card.
     if (count > 0) {
-      // If there is a winning card push it to array
-
-      sum += 2 ** (count - 1);
+      return (total += 2 ** (count - 1));
     }
 
-    return count;
-  });
-
-  console.log(winning);
-
-  return sum;
+    return total;
+  }, 0);
 }
 export function two(input: string): number {
-  let cards = input.lines().map((l) => {
-    const [winning, mine] = l
-      .split(": ")[1]
-      .split(" | ")
-      .map((x) =>
-        x
-          .split(" ")
-          .map((y) => parseInt(y))
-          .filter(Boolean)
-      );
+  const scratchcards = new Map<number, number>();
 
-    return { winning, mine };
-  });
-
-  let totalCards = [...cards]; // Copy of the original cards array to store additional cards
-  let i = 0;
-
-  // Process each card and any new cards added during the process
-  while (i < totalCards.length) {
-    const card = totalCards[i];
-    const count = card.winning.filter((x) => card.mine.includes(x)).length;
-
-    for (let j = 1; j <= count && i + j < cards.length; j++) {
-      totalCards.push({ ...cards[i + j] });
+  return input.lines().reduce((total, l, i) => {
+    if (!scratchcards.has(i + 1)) {
+      scratchcards.set(i + 1, 1);
     }
 
-    i++;
-  }
+    const [winning, mine] = l
+      .split(": ")[1]
+      .split("|")
+      .map(
+        (x) =>
+          new Set(
+            x
+              .split(" ")
+              .map((y) => parseInt(y))
+              .filter(Boolean)
+          )
+      );
 
-  return totalCards.length;
+    const count = intersection([...winning], [...mine]).length;
+
+    total += scratchcards.get(i + 1) || 0;
+
+    for (let j = i + 2; j <= i + 1 + count; j++) {
+      scratchcards.set(
+        j,
+        (scratchcards.get(j) || 1) + (scratchcards.get(i + 1) || 0)
+      );
+    }
+
+    return total;
+  }, 0);
 }
 
 console.log(`Part 1: `, one(input));
