@@ -16,7 +16,7 @@ const [year = currentYear, day = currentDay] = Deno.args;
 const command = new Deno.Command(Deno.execPath(), {
   args: [
     flags.test ? `test` : `run`,
-    "--allow-all",
+    "-A",
     join(
       year,
       day.padStart(2, "0"),
@@ -24,6 +24,16 @@ const command = new Deno.Command(Deno.execPath(), {
     ),
   ],
 });
+
+console.log([
+  flags.test ? `test` : `run`,
+  "-A",
+  join(
+    year,
+    day.padStart(2, "0"),
+    flags.test ? "solution.test.ts" : "solution.ts"
+  ),
+]);
 
 const { stdout, stderr } = command.outputSync();
 
