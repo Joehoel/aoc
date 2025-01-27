@@ -8,7 +8,7 @@ I don't know why anyone else would like to run this code. But if you do, and you
 2. Install Deno
 3. Run the code
 
-Simple as that. I'm not going to tell you how to clone the repository or how to install Deno. If you don't know how to do that, you're not that smart, and don't belong on GitHub.
+Simple as that. I'm not going to tell you how to clone the repository or how to install Deno. 
 
 I am going to tell you how to run the code though, because I'm nice like that.
 
