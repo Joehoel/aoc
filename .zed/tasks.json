@@ -1,0 +1,6 @@
+[
+  {
+    "label": "deno run",
+    "command": "deno run run"
+  }
+]
