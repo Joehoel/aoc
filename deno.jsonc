@@ -3,7 +3,7 @@
     "run": "deno run --allow-run --allow-read --allow-env aoc.ts",
     "run:watch": "deno run --watch --allow-run --allow-read --allow-env aoc.ts",
     "download": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env download.ts",
-    "g": "npx plop",
+    "g": "npx plop@latest",
   },
   "imports": {
     "utils": "./utils.ts",

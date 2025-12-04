@@ -21,8 +21,6 @@ export function one(input: string): number {
 	// Get the diff of every item at the same index
 	const diffs = left.map((_, i) => Math.abs(right[i] - left[i]));
 
-	console.log(diffs);
-
 	return diffs.sum();
 }
 export function two(input: string): number {

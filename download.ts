@@ -9,20 +9,20 @@ const url = `https://adventofcode.com/${year}/day/${day}/input`;
 const session = Deno.env.get("AOC_SESSION");
 
 if (!session) {
-  throw new Error("No session found");
+	throw new Error("No session found");
 }
 
 const cookie = `session=${session}`;
 
 const input = await fetch(url, {
-  headers: {
-    cookie,
-    "user-agent":
-      "https://github.com/Joehoel/aoc/blob/master/download.ts by jmkuijper@outlook.com",
-  },
+	headers: {
+		cookie,
+		"user-agent":
+			"https://github.com/Joehoel/aoc/blob/master/download.ts by jmkuijper@outlook.com",
+	},
 }).then((res) => res.text());
 
 Deno.writeTextFileSync(
-  `./${year}/${day.padStart(2, "0")}/input.txt`,
-  input.trimEnd()
+	`./${year}/${day.padStart(2, "0")}/input.txt`,
+	input.trimEnd(),
 );
