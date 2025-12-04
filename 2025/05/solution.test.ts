@@ -2,7 +2,7 @@ import { assertEquals } from "testing/asserts.ts";
 import { raw } from "utils";
 import { one, two } from "./solution.ts";
 
-const example = raw("2024/02/example.txt");
+const example = raw("2025/05/example.txt");
 
 Deno.test("Part 1", () => {
 	const result = one(example);

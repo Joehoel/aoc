@@ -1,6 +1,6 @@
 import { raw } from "utils";
 
-const input = raw("2025/04/input.txt");
+const input = raw("2025/05/input.txt");
 
 export function one(input: string): number {
 	return 0;

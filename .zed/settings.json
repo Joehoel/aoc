@@ -1,59 +1,80 @@
 {
-  "lsp": {
-    "json-language-server": {
-      "settings": {
-        "json": {
-          "schemas": [
-            {
-              "fileMatch": ["deno.json", "deno.jsonc"],
-              "url": "https://raw.githubusercontent.com/denoland/deno/refs/heads/main/cli/schemas/config-file.v1.json"
-            },
-            {
-              "fileMatch": ["package.json"],
-              "url": "https://www.schemastore.org/package"
-            }
-          ]
-        }
-      }
-    },
-    "deno": {
-      "settings": {
-        "deno": {
-          "enable": true
-        }
-      }
-    }
-  },
-  "languages": {
-    "JavaScript": {
-      "language_servers": [
-        "deno",
-        "!typescript-language-server",
-        "!vtsls",
-        "!eslint",
-        "!biome"
-      ],
-      "formatter": "language_server"
-    },
-    "TypeScript": {
-      "language_servers": [
-        "deno",
-        "!typescript-language-server",
-        "!vtsls",
-        "!eslint",
-        "!biome"
-      ],
-      "formatter": "language_server"
-    },
-    "TSX": {
-      "language_servers": [
-        "deno",
-        "!typescript-language-server",
-        "!vtsls",
-        "!eslint",
-        "!biome"
-      ],
-      "formatter": "language_server"
-    }
-  }
+	"lsp": {
+		"json-language-server": {
+			"settings": {
+				"json": {
+					"schemas": [
+						{
+							"fileMatch": ["deno.json", "deno.jsonc"],
+							"url": "https://raw.githubusercontent.com/denoland/deno/refs/heads/main/cli/schemas/config-file.v1.json"
+						},
+						{
+							"fileMatch": ["package.json"],
+							"url": "https://www.schemastore.org/package"
+						}
+					]
+				}
+			}
+		},
+		"deno": {
+			"settings": {
+				"deno": {
+					"enable": true
+				}
+			}
+		}
+	},
+	"languages": {
+		"JavaScript": {
+			"language_servers": [
+				"deno",
+				"!typescript-language-server",
+				"!vtsls",
+				"!eslint",
+				"!biome"
+			],
+			"formatter": "language_server",
+			"format_on_save": "on"
+		},
+		"TypeScript": {
+			"language_servers": [
+				"deno",
+				"!typescript-language-server",
+				"!vtsls",
+				"!eslint",
+				"!biome"
+			],
+			"formatter": "language_server",
+			"format_on_save": "on"
+		},
+		"TSX": {
+			"language_servers": [
+				"deno",
+				"!typescript-language-server",
+				"!vtsls",
+				"!eslint",
+				"!biome"
+			],
+			"formatter": "language_server",
+			"format_on_save": "on"
+		},
+		"JSONC": {
+			"formatter": {
+				"external": {
+					"command": "deno",
+					"arguments": ["fmt", "--ext", "jsonc", "-"]
+				}
+			},
+			"format_on_save": "on"
+		},
+		"JSON": {
+			"formatter": {
+				"external": {
+					"command": "deno",
+					"arguments": ["fmt", "--ext", "json", "-"]
+				}
+			},
+			"format_on_save": "on"
+		}
+	}
 }

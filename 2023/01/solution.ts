@@ -3,60 +3,60 @@ import { raw } from "utils";
 const input = raw("2023/01/input.txt");
 
 function isNumber(value?: string | number): boolean {
-  return value != null && value !== "" && !isNaN(Number(value.toString()));
+	return value != null && value !== "" && !isNaN(Number(value.toString()));
 }
 
 const words = [
-  "one",
-  "two",
-  "three",
-  "four",
-  "five",
-  "six",
-  "seven",
-  "eight",
-  "nine",
+	"one",
+	"two",
+	"three",
+	"four",
+	"five",
+	"six",
+	"seven",
+	"eight",
+	"nine",
 ];
 
 export function one(input: string): number {
-  return input.split("\n").reduce((acc, line) => {
-    const digits: number[] = [];
+	return input.split("\n").reduce((acc, line) => {
+		const digits: number[] = [];
 
-    for (let i = 0; i < line.length; i++) {
-      const l = line[i];
-      if (isNumber(l)) {
-        digits.push(parseInt(l, 10));
-      }
-    }
+		for (let i = 0; i < line.length; i++) {
+			const l = line[i];
+			if (isNumber(l)) {
+				digits.push(parseInt(l, 10));
+			}
+		}
 
-    return (acc += Number(
-      digits.first()!.toString() + digits.last()!.toString()
-    ));
-  }, 0);
+		return (acc += Number(
+			digits.first()!.toString() + digits.last()!.toString(),
+		));
+	}, 0);
 }
 export function two(input: string): number {
-  return input.split("\n").reduce((acc, line) => {
-    const digits: number[] = [];
+	return input.split("\n").reduce((acc, line) => {
+		const digits: number[] = [];
 
-    for (let i = 0; i < line.length; i++) {
-      const l = line[i];
+		for (let i = 0; i < line.length; i++) {
+			const l = line[i];
 
-      if (isNumber(l)) {
-        digits.push(parseInt(l, 10));
-      }
+			if (isNumber(l)) {
+				digits.push(parseInt(l, 10));
+			}
 
-      for (let j = 0; j < words.length; j++) {
-        const word = words[j];
-        if (line.slice(i).startsWith(word)) {
-          digits.push(j + 1);
-        }
-      }
-    }
+			for (let j = 0; j < words.length; j++) {
+				const word = words[j];
+				if (line.slice(i).startsWith(word)) {
+					digits.push(j + 1);
+				}
+			}
+		}
 
-    return (acc += Number(
-      digits.first()!.toString() + digits.last()!.toString()
-    ));
-  }, 0);
+		return (acc += Number(
+			digits.first()!.toString() + digits.last()!.toString(),
+		));
+	}, 0);
 }
 
 console.log(`Part 1: `, one(input));

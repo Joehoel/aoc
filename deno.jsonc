@@ -1,27 +1,25 @@
 {
-  "tasks": {
-    "run": "deno run --allow-run --allow-read --allow-env aoc.ts",
-    "run:watch": "deno run --watch --allow-run --allow-read --allow-env aoc.ts",
-    "download": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env download.ts",
-    "g": "npx plop@latest",
-  },
-  "imports": {
-    "utils": "./utils.ts",
-    "testing/": "https://deno.land/std@0.166.0/testing/",
-    "command": "https://deno.land/x/cliffy@v0.25.4/command/mod.ts",
-    "path": "https://deno.land/std@0.167.0/path/mod.ts",
-    "DOMParser": "https://deno.land/x/deno_dom/deno-dom-wasm.ts",
-    "yargs": "https://cdn.deno.land/yargs/versions/yargs-v16.2.1-deno/raw/deno.ts",
-    "flags": "https://deno.land/std@0.91.0/flags/mod.ts",
-    "dotenv": "https://deno.land/std@0.192.0/dotenv/load.ts",
-  },
-  "fmt": {
-    "options": {
-      "indentWidth": 2,
-      "lineWidth": 80,
-      "singleQuote": false,
-      "useTabs": true,
-      "semiColons": true,
-    },
-  },
+	"tasks": {
+		"run": "deno run --allow-run --allow-read --allow-env aoc.ts",
+		"run:watch": "deno run --watch --allow-run --allow-read --allow-env aoc.ts",
+		"download": "deno run --allow-run --allow-read --allow-write --allow-net --allow-env download.ts",
+		"g": "npx plop@latest"
+	},
+	"imports": {
+		"utils": "./utils.ts",
+		"testing/": "https://deno.land/std@0.166.0/testing/",
+		"command": "https://deno.land/x/cliffy@v0.25.4/command/mod.ts",
+		"path": "https://deno.land/std@0.167.0/path/mod.ts",
+		"DOMParser": "https://deno.land/x/deno_dom/deno-dom-wasm.ts",
+		"yargs": "https://cdn.deno.land/yargs/versions/yargs-v16.2.1-deno/raw/deno.ts",
+		"flags": "https://deno.land/std@0.91.0/flags/mod.ts",
+		"dotenv": "https://deno.land/std@0.192.0/dotenv/load.ts"
+	},
+	"fmt": {
+		"indentWidth": 2,
+		"lineWidth": 80,
+		"singleQuote": false,
+		"useTabs": true,
+		"semiColons": true
+	}
 }

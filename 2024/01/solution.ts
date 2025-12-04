@@ -1,4 +1,3 @@
-import { diff } from "testing/_diff.ts";
 import { raw } from "utils";
 
 const input = raw("2024/01/input.txt");
