@@ -7,11 +7,11 @@ const example = raw("2025/05/example.txt");
 Deno.test("Part 1", () => {
 	const result = one(example);
 
-	assertEquals(result, 0);
+	assertEquals(result, 3);
 });
 
 Deno.test("Part 2", () => {
 	const result = two(example);
 
-	assertEquals(result, 0);
+	assertEquals(result, 14);
 });
